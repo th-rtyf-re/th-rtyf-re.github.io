@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+$bg-base-width: 1920px; //3264px;
+$bg-base-height: 1440px; //2448px;
+$bg-aspect: $bg-base-width / $bg-base-height;
+
+$bg-focus-base-size: 307px;  // square should be easily visible
+$bg-focus-left: 50px;
+$bg-focus-top: 684px;
+$bg-focus-base-x: $bg-focus-left + ($bg-focus-base-size / 2);  // center of square
+$bg-focus-base-y: $bg-focus-top + ($bg-focus-base-size / 2);  // center of square
+
+$bg-focus-rel-x: .5;  // relative x (0=left, 1=right) of desired focus location
+$bg-focus-rel-y: .68; // relative y (0=top, 1=bottom) of desired focus location
+$bg-focus-size: 4cm;  // minimum size (width and height) of focus area
+
+$bg-focus-scale: $bg-focus-size / $bg-focus-base-size;
+
+:root {
+  @media (min-aspect-ratio: #{$bg-aspect}) {  // wider than bg
+    --bg-width: max(100vw, #{$bg-focus-scale * $bg-base-width});
+    --bg-height: calc(var(--bg-width) / #{$bg-aspect});
+    --bg-scale: calc(var(--bg-width) / #{$bg-base-width});
+  }
+  @media (max-aspect-ratio: #{$bg-aspect}) {  // taller than bg
+    --bg-height: max(100vh, #{$bg-focus-scale * $bg-base-height});
+    --bg-width: calc(var(--bg-height) * #{$bg-aspect});
+    --bg-scale: calc(var(--bg-height) / #{$bg-base-height});
+  }
+  --bg-position-y: calc(#{$bg-focus-rel-y} * (100vh - var(--bg-height)));
+}
+
+html {
+  color: #fff;
+  font-family: "Recursive", monospace;
+}
+
+body {
+  background: #111;
+  margin: 0;
+  overflow: hidden;
+  background-attachment: fixed;
+  background-image: url("/1/bg1920.avif");
+  background-repeat: no-repeat;
+  background-size: var(--bg-width) var(--bg-height);
+  background-position-y: var(--bg-position-y)
+}
+
+.pp {
+  position: absolute;
+  top: calc(#{$bg-focus-rel-y} * (100vh - var(--bg-height)) + var(--bg-scale) * #{$bg-focus-top});
+  left: calc(var(--bg-scale) * #{$bg-focus-left});
+  width: calc(var(--bg-scale) * #{$bg-focus-base-size});
+  height: calc(var(--bg-scale) * #{$bg-focus-base-size});
+  outline: solid 1px #ffffff33;
+}
+
+.pp:hover {
+  outline: solid 3px #fff;
+}

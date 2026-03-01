@@ -1,0 +1,22 @@
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" sizes="180x180" href="/0/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/0/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/0/favicon-16x16.png">
+<link rel="manifest" href="/0/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Recursive:wght,CASL,MONO@300..1000,1,1&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/0/main.css">
+<meta name="theme-color" content="#000000">
+
+{% if page.title == site.title or page.title == nil -%}
+<title>{{ site.title }}</title>
+{% seo title=false -%}
+{%- else -%}
+{% seo -%}
+{% endif -%}
+</head>

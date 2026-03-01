@@ -1,0 +1,12 @@
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+Gemfile.lock
+**/.DS_Store
+
+# temporary ignore files
+1/*
+!1/pp307.jpg
+!1/bg1920.avif

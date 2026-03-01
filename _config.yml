@@ -1,0 +1,17 @@
+title: th🌷rtyf🌺re
+domain: th-rtyf-re.github.io
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://th-rtyf-re.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+twitter:
+  username: th_rtyf_re
+github:
+  username: th-rtyf-re
+
+theme: null
+
+# Build settings
+plugins:
+  - jekyll-seo-tag
+
+sass:
+  style: compressed
